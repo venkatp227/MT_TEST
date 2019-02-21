@@ -37,6 +37,7 @@ public class UserFlowTest {
     public ActivityTestRule<AuthenticationActivity> UserFlowTestRule = new ActivityTestRule<>(AuthenticationActivity.class, true, false);
     public ActivityTestRule<MainActivity> UserFlowTest = new ActivityTestRule<>(MainActivity.class);
     @Rule
+    //permission needed due running this local for gps, so enabled it
     public GrantPermissionRule permissionRule = GrantPermissionRule.grant(android.Manifest.permission.ACCESS_FINE_LOCATION);
 
 
@@ -71,8 +72,12 @@ public class UserFlowTest {
                 .inRoot(RootMatchers.withDecorView(not(is(UserFlowTest.getActivity().getWindow().getDecorView()))))
                 .perform(scrollTo())
                 .perform(click());
+        Log.println(Log.INFO, "@Test", "Driver " + drivername + " found");
+
         onView(withId(R.id.fab))
                 .perform(click());
+        Log.println(Log.INFO, "@Test", "Driver " + drivername + " called");
+
 
     }
 
