@@ -1,7 +1,7 @@
 version: 2
 jobs :
   build:
-    working_directory: ~/AndroidDemo
+    working_directory: ~/AndroidDemo/app
     docker:
     - image: circleci/android:api-25-alpha
     environment:
@@ -12,9 +12,7 @@ jobs :
         key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
     - run:
         name: Download Dependencies
-        command: |
-          sudo chmod +x ./gradlew
-          ./gradlew dependencies
+        command: cd AndroidDemo; ./gradlew dependencies
 
     - save_cache:
         paths:
