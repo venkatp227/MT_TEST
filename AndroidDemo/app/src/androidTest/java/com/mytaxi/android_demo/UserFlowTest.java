@@ -1,37 +1,35 @@
 package com.mytaxi.android_demo;
 
-import android.content.Intent;
-import android.support.test.rule.ActivityTestRule;
-import android.support.test.rule.GrantPermissionRule;
-import android.support.test.runner.AndroidJUnit4;
-import android.util.Log;
 import com.mytaxi.android_demo.activities.AuthenticationActivity;
 import com.mytaxi.android_demo.activities.MainActivity;
-import static android.support.test.espresso.action.ViewActions.typeText;
-import static org.hamcrest.Matchers.not;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import android.content.Intent;
+import android.util.Log;
+import android.support.test.rule.ActivityTestRule;
+import android.support.test.rule.GrantPermissionRule;
+import android.support.test.runner.AndroidJUnit4;
 import android.support.test.espresso.matcher.RootMatchers;
+import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static android.support.test.espresso.action.ViewActions.scrollTo;
-
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.not;
 
 //UserFlowTest  names it UserFlowTest since we have here a basic EndUserScenario
 @RunWith(AndroidJUnit4.class)
 public class UserFlowTest {
 
+    //Testdata
     private static final String user="crazydog335";
     private static final String pw="venture";
     private static final String searchphrase="sa";
     private static final String drivername="Sarah Scott";
-
-
 
     @Rule
     public ActivityTestRule<AuthenticationActivity> UserFlowTestRule = new ActivityTestRule<>(AuthenticationActivity.class, true, false);
@@ -54,9 +52,7 @@ public class UserFlowTest {
         onView(withId(R.id.btn_login))
                 .perform(click());
         Log.println(Log.INFO, "logintoApp", "User " + user + " logged in");
-
     }
-
 
     @Test()
     public void search_Driver() throws Exception {
@@ -77,8 +73,6 @@ public class UserFlowTest {
         onView(withId(R.id.fab))
                 .perform(click());
         Log.println(Log.INFO, "@Test", "Driver " + drivername + " called");
-
-
     }
 
 }
