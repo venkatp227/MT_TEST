@@ -11,18 +11,18 @@ jobs :
     - restore_cache:
         key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
     - run:
-        name: Download Dependencies
-        command: cd AndroidDemo; ./gradlew dependencies
+          name: Download Dependencies
+          command: cd AndroidDemo; ./gradlew dependencies
     - run:
-        name: Accept licenses
-        command: yes | sdkmanager --licenses || true
+          name: Accept licenses
+          command: yes | sdkmanager --licenses || true
     - save_cache:
-        paths:
-        - ~/.gradle
-        key: jars-{{ checksum "build.gradle" }}-{{ checksum  "AndroidDemo/app/build.gradle" }}
+          paths:
+          - ~/.gradle
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "AndroidDemo/app/build.gradle" }}
     - run:
           name: Setup emulator
-          command: sdkmanager "system-images;android-22;default;armeabi-v7a" && echo "no" | avdmanager create avd -n test -k "system-images;android-16;default;armeabi-v7a"
+          command: sdkmanager "system-images;android-21;default;armeabi-v7a" && echo "no" | avdmanager create avd -n test -k "system-images;android-21;default;armeabi-v7a"
     - run:
           name: Launch emulator
           command: export LD_LIBRARY_PATH=${ANDROID_HOME}/emulator/lib64:${ANDROID_HOME}/emulator/lib64/qt/lib && emulator64-arm -avd test -no-audio -no-boot-anim -no-window -accel auto -verbose
