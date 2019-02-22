@@ -1,1 +1,45 @@
 
+
+General ideas:
+* Integrate the api for getting the data to login and prepare for more tests the acocrding data there
+* since the emulation was not working on circleci invest time for other options
+** https://www.browserstack.com as an solution (using this currently for browser automation in jenkins integrated , performing weel but cost money)
+** Firebase (found this after some investigation, here i would need some time to check if this is an better solution than browserstack)
+* may trying to create another structure on the tests to have in the end the test inf iles where just small 
+  descriptive tests are in and the testlogic would be stored in other classes
+
+Possible TestScenarios
+
+Testscenarios simulating the loss of the Data/GPRS connection
+1)
+* Log in 
+* Simulate an interruption of the data connection during Log in
+(a log out should be performed)
+
+2)
+* Log in
+* Search your Driver 
+* Simulate an interruption Location detection (no gps, mobile connection wifi)
+(a log out should be performed)
+
+Testscenarios simulating further log in scenarios
+1)
+* Try to Log in with invalid data
+(a log out should be performed)
+
+2)
+* Try to Log in using an Injection (according to OWASP top 10 Risk List)
+(no log in should be perfomred)
+3)
+* Try to Log in with invalif data several times
+(a message should be come up and the account should be blocked)
+
+Testscenarios after beeing loged in
+1)
+* Log in an wait 
+(a log out should be performed)
+2)
+* Log in
+* Search driver when more drivers are saved within the application (sa should then for example have more then 3 entries)
+(should still perform well)
+
