@@ -1,9 +1,10 @@
 
 Log in view:
 * Password forgotton option
-* block user after to many retries
-* some more reaction when the entered data is not correct (red text in the filed with the incorrect data?)
+* Block user after to many retries
+* Some more reaction when the entered data is not correct (red text in the filed with the incorrect data?)
 
 Driver view:
-* i should be able to click on the driver itself to get may an view with some info
-* additional to a driver search also a location search ( i am here, show me drivers around)
+* I should be able to click on the driver itself to get may an view with some info
+* Additional to a driver search also a location search ( i am here, show me drivers around)
+* As in the mytaxi app some notification send to the driver instead of a phonecall
