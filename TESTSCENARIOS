@@ -10,7 +10,7 @@ General ideas:
 
 Possible TestScenarios
 
-Testscenarios simulating the loss of the Data/GPRS connection
+Testscenarios simulating the loss of the Data/GPRS connection:
 1)
 * Log in 
 * Simulate an interruption of the data connection during Log in
@@ -22,7 +22,7 @@ Testscenarios simulating the loss of the Data/GPRS connection
 * Simulate an interruption Location detection (no gps, mobile connection wifi)
 (a log out should be performed)
 
-Testscenarios simulating further log in scenarios
+Testscenarios simulating further log in scenarios:
 1)
 * Try to Log in with invalid data
 (a log out should be performed)
@@ -34,7 +34,7 @@ Testscenarios simulating further log in scenarios
 * Try to Log in with invalif data several times
 (a message should be come up and the account should be blocked)
 
-Testscenarios after beeing loged in
+Testscenarios after beeing loged in:
 1)
 * Log in an wait 
 (a log out should be performed)
@@ -43,3 +43,9 @@ Testscenarios after beeing loged in
 * Search driver when more drivers are saved within the application (sa should then for example have more then 3 entries)
 (should still perform well)
 
+Testscenarios with different devices:
+first a list of the app distribution and take the top 3 by operating system and displaysize
+1)
+* Log in 
+* Select driver
+* Call driver 
