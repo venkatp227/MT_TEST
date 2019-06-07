@@ -15,7 +15,8 @@ jobs :
           command: cd AndroidDemo; ./gradlew dependencies
     - run:
           name: Accept licenses
-          command: yes | sdkmanager --licenses || true
+          #command: yes | sdkmanager --licenses || true
+          command: yes | $ANDROID_HOME/tools/bin/sdkmanager --licenses || if [ $? -ne '141' ]; then exit $?; fi;  #Captures SIGPIPE 141 error but still allow repeating "y" to accept all licenses
     - save_cache:
           paths:
           - ~/.gradle
